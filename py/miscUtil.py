@@ -37,3 +37,19 @@ def unComment():
 #bufFtype=None
 vim.api.set_keymap('n', '<leader>cmt', '<cmd>py3 setComment()<CR>', {'noremap':True, 'silent':False})
 vim.api.set_keymap('n', '<leader>ucmt', '<cmd>py3 unComment()<CR>', {'noremap':True, 'silent':False})
+#  *****************************  去除punct符號 ***************************
+vim.api.set_keymap('n', '<leader>pnct', '<cmd>%s/[；。：，]/ /g<CR>', {'noremap':True, 'silent':False})
+vim.api.set_keymap('n', '<leader>mdd', '/^\\d<S-V>nnkJ\\mb', {'noremap':True, 'silent':False})
+vim.api.set_keymap('n', '<leader>slb', '<cmd>.s/ //g<CR>', {'noremap':True, 'silent':False})
+vim.api.set_keymap('n', '<leader>saz', '<cmd>%s/[a-zA-Z]\\+ \\?//g<CR>', {'noremap':True, 'silent':False})  #a-z
+vim.api.set_keymap('n', '<leader>dgt', '<cmd>%s/\\d\\+//g<CR>', {'noremap':True, 'silent':False})   #digit
+vim.api.set_keymap('n', '<leader>hes', '<cmd>.s/ //g<CR>', {'noremap':True, 'silent':False})
+vim.api.set_keymap('n', '<leader>mb', '<cmd>%s/ \\+/ /g<CR>', {'noremap':True, 'silent':False})
+vim.api.set_keymap('n', '<leader>rq', '<cmd>%s# \\?\\([：；、?。！？﹖◎]\\) \\?#\\1#g<CR>', {'noremap':True, 'silent':False})
+vim.api.set_keymap('n', '<leader>ad', '<cmd>%s#\\(\\d\\+\\)#\\1.#g<CR>', {'noremap':True, 'silent':False})
+vim.api.set_keymap('n', '<leader>aa', '<cmd>%s#\\([a-zA-Z]\\)#\\1.#g<CR>', {'noremap':True, 'silent':False})
+vim.api.set_keymap('n', '<leader>aad', '<cmd>%s#\\([a-zA-Z0-9]\\)#\\1.#g<CR>', {'noremap':True, 'silent':False})
+vim.api.set_keymap('n', '<leader>ru', '<cmd>%s#[^\\u4E00-\\u9FFF|，：。；、! ！#0-9:\\?\\.？a-zA-Z\\/」●◆「《》～\\%\\=◎|[:punct:]]##g<CR>', {'noremap':True, 'silent':False})
+vim.api.set_keymap('n', '<leader>qr', '<cmd>%s/[（）「」]//g<CR>', {'noremap':True, 'silent':False})
+vim.api.set_keymap('n', '<leader>rb', '<cmd>%s/[- ]\\+$//g<CR>', {'noremap':True, 'silent':False})
+vim.api.set_keymap('n', '<leader>cmb', '<cmd>%s/ \\+/ /g<CR><cmd>%s/ \\+$//g<CR><cmd>%s# \\=\\([：、?！？]\\) \\=#\\1#g<CR>', {'noremap':True, 'silent':False})
